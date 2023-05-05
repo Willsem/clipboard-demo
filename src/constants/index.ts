@@ -1,0 +1,1 @@
+export const APPLICATION_WIDTH = 1200;
