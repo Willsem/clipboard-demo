@@ -12,8 +12,8 @@ export const Header: FC = () => {
 
   return (
     <header className={styles.header}>
-      <Center>
-        <Flex gap={5} w={APPLICATION_WIDTH}>
+      <Center boxShadow="base" padding="12px">
+        <Flex gap="16px" w={APPLICATION_WIDTH} alignItems="center">
           <Logo />
           <Link to="/read">
             <Button
