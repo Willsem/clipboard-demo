@@ -1,6 +1,8 @@
 import { ClipboardContentItem } from '.';
 
-export async function writeClipboard(content: ClipboardContentItem[]): Promise<void> {
+export async function writeClipboard(
+  content: ClipboardContentItem[],
+): Promise<void> {
   const clipboardItems = content.map(
     item =>
       new ClipboardItem({

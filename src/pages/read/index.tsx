@@ -1,4 +1,16 @@
-import { Box, Button, Table, TableCaption, Tbody, Td, Th, Thead, Tr, useToast } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Spacer,
+  Table,
+  TableCaption,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  useToast,
+} from '@chakra-ui/react';
 import { FC, useState } from 'react';
 
 import { ClipboardContentItem, readClipboard } from '../../lib/clipboard';
@@ -31,8 +43,9 @@ export const ReadPage: FC = () => {
   return (
     <Box>
       <Button onClick={clickInspectClipboard}>Inspect your clipboard</Button>
+      <Spacer h="24px" />
       <Table variant="simple">
-        <TableCaption>Clipboard content</TableCaption>
+        <TableCaption color="grey">Clipboard content</TableCaption>
         <Thead>
           <Tr>
             <Th>Type</Th>

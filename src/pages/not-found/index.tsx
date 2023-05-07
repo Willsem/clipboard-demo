@@ -8,7 +8,13 @@ export const NotFoundPage: FC = () => {
   const location = useLocation();
 
   return (
-    <Flex className={styles.notFoundPage} w="100%" alignItems="center" justifyContent="center" flexDir="column">
+    <Flex
+      className={styles.notFoundPage}
+      w="100%"
+      alignItems="center"
+      justifyContent="center"
+      flexDir="column"
+    >
       <Heading size="3xl">Not Found</Heading>
       <Text fontSize="xl">The page "{location.pathname}" does not exist</Text>
     </Flex>
