@@ -13,7 +13,7 @@ export const Router: FC = () => {
     <BrowserRouter>
       <Header />
       <Center>
-        <Box w={APPLICATION_WIDTH} pt="24px">
+        <Box w={APPLICATION_WIDTH} pt="24px" pl="12px" pr="12px">
           <Routes>
             <Route path="/" element={<Navigate to="/read" replace={true} />} />
             <Route path="/read" element={<ReadPage />} />

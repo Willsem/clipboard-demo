@@ -1,7 +1,8 @@
-import { Grid, GridItem, IconButton, Input } from '@chakra-ui/react';
+import { Grid, GridItem, IconButton } from '@chakra-ui/react';
 import { FC } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
 import { BsFillTrashFill } from 'react-icons/bs';
+
+import { ControlInput } from '../../../components';
 
 interface Props {
   index: number;
@@ -9,24 +10,22 @@ interface Props {
 }
 
 export const InputRow: FC<Props> = ({ index, onRemove }) => {
-  const { control } = useFormContext();
-
   return (
-    <Grid templateColumns="repeat(13, 1fr)" gap="16px">
-      <GridItem colSpan={3}>
-        <Controller
+    <Grid templateColumns="repeat(25, 1fr)" gap="16px">
+      <GridItem colSpan={6}>
+        <ControlInput
           name={`items.${index}.type`}
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => <Input placeholder="Type" {...field} />}
+          required
+          placeholder="Type"
+          errorBorderColor="red"
         />
       </GridItem>
-      <GridItem colSpan={9}>
-        <Controller
+      <GridItem colSpan={18}>
+        <ControlInput
           name={`items.${index}.content`}
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => <Input placeholder="Content" {...field} />}
+          required
+          placeholder="Content"
+          errorBorderColor="red"
         />
       </GridItem>
       <GridItem>

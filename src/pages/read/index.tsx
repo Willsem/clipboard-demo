@@ -9,15 +9,15 @@ import {
   Th,
   Thead,
   Tr,
-  useToast,
 } from '@chakra-ui/react';
 import { FC, useState } from 'react';
 
 import { ClipboardContentItem, readClipboard } from '../../lib/clipboard';
+import { useErrorToast } from '../../providers';
 
 export const ReadPage: FC = () => {
   const [items, setItems] = useState<ClipboardContentItem[]>([]);
-  const toast = useToast();
+  const toast = useErrorToast();
 
   const clickInspectClipboard = () =>
     readClipboard()
@@ -26,10 +26,6 @@ export const ReadPage: FC = () => {
         toast({
           title: 'Error while reading the clipboard',
           description: e.message,
-          status: 'error',
-          variant: 'left-accent',
-          position: 'top-right',
-          isClosable: true,
         });
       });
 

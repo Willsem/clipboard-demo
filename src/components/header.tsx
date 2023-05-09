@@ -13,7 +13,13 @@ export const Header: FC = () => {
   return (
     <header className={styles.header}>
       <Center boxShadow="base" padding="12px">
-        <Flex gap="16px" w={APPLICATION_WIDTH} alignItems="center">
+        <Flex
+          gap="16px"
+          w={APPLICATION_WIDTH}
+          alignItems="center"
+          pl="12px"
+          pr="12px"
+        >
           <Logo />
           <Link to="/read">
             <Button
