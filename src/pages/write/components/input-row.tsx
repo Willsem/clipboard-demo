@@ -18,6 +18,7 @@ export const InputRow: FC<Props> = ({ index, onRemove }) => {
           required
           placeholder="Type"
           errorBorderColor="red"
+          autoComplete="off"
         />
       </GridItem>
       <GridItem colSpan={18}>
@@ -26,6 +27,7 @@ export const InputRow: FC<Props> = ({ index, onRemove }) => {
           required
           placeholder="Content"
           errorBorderColor="red"
+          autoComplete="off"
         />
       </GridItem>
       <GridItem>
