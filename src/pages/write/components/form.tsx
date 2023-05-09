@@ -1,5 +1,5 @@
 import { Button, Flex, Spacer } from '@chakra-ui/react';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   FormProvider,
   SubmitHandler,
@@ -8,7 +8,12 @@ import {
 } from 'react-hook-form';
 
 import { InputRow, PlusButton } from '.';
+import { WRITE_PAGE_KEY_LOCALSTORAGE } from '../../../constants';
 import { ClipboardContentItem, writeClipboard } from '../../../lib/clipboard';
+import {
+  readLocalStorage,
+  writeLocalStorage,
+} from '../../../lib/local-storage';
 import { useErrorToast, useSuccessToast } from '../../../providers';
 
 interface FormResults {
@@ -16,16 +21,27 @@ interface FormResults {
 }
 
 export const Form: FC = () => {
-  const formMethods = useForm<FormResults>({
-    defaultValues: {
+  let defaultValues = readLocalStorage<FormResults>(
+    WRITE_PAGE_KEY_LOCALSTORAGE,
+  );
+  if (defaultValues === undefined) {
+    defaultValues = {
       items: [
         {
           type: 'text/plain',
           content: '',
         },
       ],
-    },
-  });
+    };
+  }
+
+  const formMethods = useForm<FormResults>({ defaultValues });
+
+  const formResults = formMethods.watch();
+  useEffect(() => {
+    writeLocalStorage<FormResults>(WRITE_PAGE_KEY_LOCALSTORAGE, formResults);
+  }, [formResults]);
+
   const { fields, append, remove } = useFieldArray({
     name: 'items',
     control: formMethods.control,

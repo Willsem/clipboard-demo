@@ -10,13 +10,29 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
+import { READ_PAGE_KEY_LOCALSTORAGE } from '../../constants';
 import { ClipboardContentItem, readClipboard } from '../../lib/clipboard';
+import { readLocalStorage, writeLocalStorage } from '../../lib/local-storage';
 import { useErrorToast } from '../../providers';
 
 export const ReadPage: FC = () => {
-  const [items, setItems] = useState<ClipboardContentItem[]>([]);
+  let defaultValues = readLocalStorage<ClipboardContentItem[]>(
+    READ_PAGE_KEY_LOCALSTORAGE,
+  );
+  if (defaultValues === undefined) {
+    defaultValues = [];
+  }
+
+  const [items, setItems] = useState<ClipboardContentItem[]>(defaultValues);
+  useEffect(() => {
+    writeLocalStorage<ClipboardContentItem[]>(
+      READ_PAGE_KEY_LOCALSTORAGE,
+      items,
+    );
+  }, [items]);
+
   const toast = useErrorToast();
 
   const clickInspectClipboard = () =>
