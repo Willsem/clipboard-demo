@@ -18,7 +18,7 @@ export const Header: FC = () => {
           <Link to="/read">
             <Button
               leftIcon={<FiBookOpen />}
-              colorScheme="teal"
+              colorScheme="blue"
               variant="ghost"
               isActive={location.pathname === '/read'}
             >
@@ -28,7 +28,7 @@ export const Header: FC = () => {
           <Link to="/write">
             <Button
               leftIcon={<FiPenTool />}
-              colorScheme="teal"
+              colorScheme="blue"
               variant="ghost"
               isActive={location.pathname === '/write'}
             >

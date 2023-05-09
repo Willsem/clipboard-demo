@@ -42,9 +42,11 @@ export const ReadPage: FC = () => {
 
   return (
     <Box>
-      <Button onClick={clickInspectClipboard}>Inspect your clipboard</Button>
+      <Button onClick={clickInspectClipboard} colorScheme="blue">
+        Inspect your clipboard
+      </Button>
       <Spacer h="24px" />
-      <Table variant="simple">
+      <Table variant="simple" colorScheme="blue">
         <TableCaption color="grey">Clipboard content</TableCaption>
         <Thead>
           <Tr>

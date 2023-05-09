@@ -8,7 +8,7 @@ export const Logo: FC = () => {
   return (
     <Flex gap="8px" alignItems="center">
       <img src={favicon} className={styles.logo__icon} />
-      <Text fontSize="2xl" colorScheme="teal">
+      <Text fontSize="2xl" colorScheme="blue">
         Clipboard Demo
       </Text>
     </Flex>
