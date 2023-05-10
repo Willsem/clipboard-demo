@@ -1,6 +1,14 @@
-import { Button, Center, Flex } from '@chakra-ui/react';
+import {
+  Button,
+  Center,
+  Flex,
+  IconButton,
+  Spacer,
+  useColorMode,
+} from '@chakra-ui/react';
 import { FC } from 'react';
 import { FiBookOpen, FiPenTool } from 'react-icons/fi';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Logo } from '.';
@@ -9,6 +17,8 @@ import styles from './header.module.scss';
 
 export const Header: FC = () => {
   const location = useLocation();
+
+  const { toggleColorMode, colorMode } = useColorMode();
 
   return (
     <header className={styles.header}>
@@ -41,6 +51,14 @@ export const Header: FC = () => {
               Write
             </Button>
           </Link>
+          <Spacer />
+          <IconButton
+            icon={colorMode === 'dark' ? <MdLightMode /> : <MdDarkMode />}
+            aria-label="switch color mode"
+            variant="ghost"
+            size="lg"
+            onClick={toggleColorMode}
+          />
         </Flex>
       </Center>
     </header>
