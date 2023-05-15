@@ -1,8 +1,15 @@
-import { Box, Button, Grid, GridItem, Spacer, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  Spacer,
+  Textarea,
+} from '@chakra-ui/react';
 import { FC, useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
-import { ControlInput } from '../../components';
+import { ControlTextarea } from '../../components';
 import { TEXT_PAGE_KEY_LOCALSTORAGE } from '../../constants';
 import {
   readTextClipboard,
@@ -84,7 +91,14 @@ export const TextPage: FC = () => {
             Inspect text from clipboard
           </Button>
           <Spacer h="12px" />
-          <Text>{clipboardText}</Text>
+          <Textarea
+            placeholder="Clipboard content"
+            autoComplete="off"
+            disabled
+            value={clipboardText}
+            rows={20}
+            resize="none"
+          />
         </GridItem>
         <GridItem>
           <FormProvider {...formMethods}>
@@ -93,12 +107,14 @@ export const TextPage: FC = () => {
                 Write text to clipboard
               </Button>
               <Spacer h="12px" />
-              <ControlInput
+              <ControlTextarea
                 name="input"
                 required
                 placeholder="Input text for clipboard"
                 errorBorderColor="red"
                 autoComplete="off"
+                rows={20}
+                resize="none"
               />
             </form>
           </FormProvider>

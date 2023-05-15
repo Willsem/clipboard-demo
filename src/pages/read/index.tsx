@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { FC, useEffect, useState } from 'react';
 
-import { READ_PAGE_KEY_LOCALSTORAGE } from '../../constants';
+import { APPLICATION_WIDTH, READ_PAGE_KEY_LOCALSTORAGE } from '../../constants';
 import { ClipboardContentItem, readClipboard } from '../../lib/clipboard';
 import { readLocalStorage, writeLocalStorage } from '../../lib/local-storage';
 import { useErrorToast } from '../../providers';
@@ -47,8 +47,8 @@ export const ReadPage: FC = () => {
 
   const tBody = items.map(item => (
     <Tr>
-      <Td>{item.type}</Td>
-      <Td>{item.content}</Td>
+      <Td minW="70px">{item.type}</Td>
+      <Td maxW={APPLICATION_WIDTH - 160}>{item.content}</Td>
     </Tr>
   ));
 
@@ -58,7 +58,7 @@ export const ReadPage: FC = () => {
         Inspect your clipboard
       </Button>
       <Spacer h="24px" />
-      <Table variant="simple" colorScheme="blue">
+      <Table variant="simple" colorScheme="blue" maxW="100%" minW="100%">
         <TableCaption color="grey">Clipboard content</TableCaption>
         <Thead>
           <Tr>
