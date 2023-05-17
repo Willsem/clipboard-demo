@@ -4,6 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Header } from '../components';
 import { APPLICATION_WIDTH } from '../constants';
+import { EventsPage } from './events';
 import { NotFoundPage } from './not-found';
 import { ReadPage } from './read';
 import { TextPage } from './text';
@@ -20,6 +21,7 @@ export const Router: FC = () => {
             <Route path="/text" element={<TextPage />} />
             <Route path="/read" element={<ReadPage />} />
             <Route path="/write" element={<WritePage />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Box>

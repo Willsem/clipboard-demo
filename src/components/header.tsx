@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { FC } from 'react';
 import { FiBookOpen, FiFileText, FiPenTool } from 'react-icons/fi';
-import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { MdDarkMode, MdLightMode, MdOutlineEventNote } from 'react-icons/md';
 
 import { HeaderButton, Logo } from '.';
 import { APPLICATION_WIDTH } from '../constants';
@@ -38,6 +38,10 @@ export const Header: FC = () => {
 
           <HeaderButton path="/write" icon={<FiPenTool />}>
             Write
+          </HeaderButton>
+
+          <HeaderButton path="/events" icon={<MdOutlineEventNote />}>
+            Events
           </HeaderButton>
 
           <Spacer />
